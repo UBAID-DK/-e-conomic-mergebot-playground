@@ -1,14 +1,15 @@
 name: Mergebot
 
 on:
+  schedule:
+    - cron:  '2 * * * *'    # At every 15th minute
   workflow_run:
     workflows:
       - Pull request
     types:
       - completed
   workflow_dispatch:
-  schedule:
-      - cron : '5 * * * *'  
+  
 jobs:
   auto-merge:
     name: Auto merge
