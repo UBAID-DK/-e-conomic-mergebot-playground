@@ -1,14 +1,13 @@
 name: Pull request
 
 on: 
-  schedule:
-    - cron:  '5 * * * *'    # At every 15th minute
   pull_request:
     branches:
       - main
   workflow_call:
   workflow_dispatch:
-
+  schedule:
+    - cron:  '5 * * * *'    # At every 15th minute
 jobs:
   build_and_test:
     name: Build and test
