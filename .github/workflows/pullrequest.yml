@@ -6,7 +6,8 @@ on:
       - main
   workflow_call:
   workflow_dispatch:
-
+  schedule:
+   - cron: '5 * * * *'
 jobs:
   build_and_test:
     name: Build and test
