@@ -1,0 +1,22 @@
+name: Mergebot
+
+on:
+  workflow_run:
+    workflows:
+      - Pull request
+    types:
+      - completed
+  workflow_dispatch:
+  
+jobs:
+  auto-merge:
+    name: Auto merge
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    steps:
+      - uses: e-conomic/mergebot@v1
+        with:
+          github_token: ${{ secrets.MERGEBOT_TOKEN }} 
+          reviewers: ${{ secrets.PLATFORM_REVIEWERS }}
+          semver_match: minors
+          MERGE_METHOD: rebase
