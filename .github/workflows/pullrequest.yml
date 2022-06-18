@@ -7,7 +7,7 @@ on:
   workflow_call:
   workflow_dispatch:
   schedule:
-    - cron:  '5 * * * *'    # At every 15th minute
+    - cron:  '1 * * * *'    # At every 15th minute
 jobs:
   build_and_test:
     name: Build and test
