@@ -1,4 +1,4 @@
-name: Mergebot
+name: Mergebot-UBR-0
 
 on:
   workflow_run:
