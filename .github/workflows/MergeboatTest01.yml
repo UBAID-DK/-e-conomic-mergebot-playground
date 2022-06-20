@@ -18,7 +18,8 @@ jobs:
       id: get-token
       with:
         private-key: ${{ secrets.PRIVATE_KEY }}
-        app-id: ${{ secrets.APP_ID }}        
+        app-id: ${{ secrets.APP_ID }} 
+        TOKEN: ${{ steps.get-token.outputs.token }}
     - uses: e-conomic/mergebot@v1
       with:
         repository: UBAID-DK/-e-conomic-mergebot-playground
