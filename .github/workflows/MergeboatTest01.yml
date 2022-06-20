@@ -27,7 +27,7 @@ jobs:
      - name: welcome
        uses: e-conomic/mergebot@v1
        with:
-        github_token: ${ appToken }    
+          github_token: ${ appToken }    
       
 
          
