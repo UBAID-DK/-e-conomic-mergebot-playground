@@ -19,12 +19,17 @@ jobs:
        uses: tibdex/github-app-token@v1      
        with:
           app_id: ${{ secrets.APP_ID }}
-          private_key: ${{ secrets.PRIVATE_KEY }}          
+          private_key: ${{ secrets.PRIVATE_KEY }}             
      - name: Use token
-       uses: e-conomic/mergebot@v1
        env:
-          TOKEN: ${{ steps.generate_token.outputs.token }}     
-          github_token: ${{ steps.generate_token.outputs.token }}
+          appToken: ${{ steps.generate_token.outputs.token }}   
+     - name: welcome
+       uses: e-conomic/mergebot@v1
+       with:
+        github_token: ${ appToken }
+        run: echo ubaid ${ appToken }
+      
+         
       
 
          
