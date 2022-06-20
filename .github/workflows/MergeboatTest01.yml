@@ -24,8 +24,9 @@ jobs:
      - name: Use token
        env:
           TOKEN: ${{ steps.generate_token.outputs.token }}     
-          run: "print token here ${ TOKEN } Ubaid Ur Rahman"          
-     - uses: e-conomic/mergebot@v1
+          run: "print token here ${ TOKEN } Ubaid Ur Rahman"    
+     - name: Use GitHub App Generator token instead of GitHub_Token     
+       uses: e-conomic/mergebot@v1
        with:
           run: "print token here ${ TOKEN } Ubaid Ur Rahman 101"   
           github_token: ${{ TOKEN }} 
