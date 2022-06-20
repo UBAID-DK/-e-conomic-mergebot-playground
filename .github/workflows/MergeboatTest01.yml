@@ -23,8 +23,7 @@ jobs:
      - name: Use token
        env:
           appToken: ${{ steps.generate_token.outputs.token }}   
-          run: "ubaid -*-*"
-     - name: welcome
+          run: "ubaid -*-*" 
        uses: e-conomic/mergebot@v1
        with:
           github_token: ${ appToken }    
