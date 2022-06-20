@@ -19,17 +19,16 @@ jobs:
        uses: tibdex/github-app-token@v1      
        with:
           app_id: ${{ secrets.APP_ID }}
-          private_key: ${{ secrets.PRIVATE_KEY }}
-          
+          private_key: ${{ secrets.PRIVATE_KEY }}          
      - name: Use token
        env:
           TOKEN: ${{ steps.generate_token.outputs.token }}     
-          run: "print token here ${ TOKEN } Ubaid Ur Rahman"           
+          run: "print token here { TOKEN } Ubaid Ur Rahman"           
   
        uses: e-conomic/mergebot@v1
        with:          
           github_token: ${ TOKEN }         
           semver_match: minors
           MERGE_METHOD: rebase
-          run: "print token here ${ TOKEN } Ubaid Ur Rahman 101"  
+          run: "print token here ${{ TOKEN }} Ubaid Ur Rahman 101"  
          
