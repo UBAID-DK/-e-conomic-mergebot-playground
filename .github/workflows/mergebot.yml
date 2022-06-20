@@ -14,17 +14,16 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 1
     steps:
-    - name: my-app-install token
-      id: my-app
-      uses: mohammad22/action-github-app-token@v1.0.8
-      with:
-       remoteGithubApiUrl: https://api.github.com
-       app_id: ${{ secrets.APP_ID }}
-       private_key: ${{ secrets.APP_PRIVATE_KEY }}
-       
-    - name: Checkout private repo
-      uses: actions/checkout@v2
-      with:
-       repository: UBAID-DK/-e-conomic-mergebot-playground
-       token: ${{ steps.my-app.outputs.token }}
-       run: "this is the current token ${ token } ubaid"
+     - name: my-app-install token
+       id: my-app
+       uses: getsentry/action-github-app-token@v1
+       with:
+         app_id: ${{ secrets.APP_ID }}
+         private_key: ${{ secrets.APP_PRIVATE_KEY }}
+
+     - name: Checkout private repo
+       uses: actions/checkout@v2
+       with:
+        repository: UBAID-DK/-e-conomic-mergebot-playground
+        token: ${{ steps.my-app.outputs.token }}
+        run: "Hi Ubaid ${ token }"
