@@ -25,8 +25,9 @@ jobs:
         env:
           TOKEN: ${{ steps.generate_token.outputs.token }}     
           run: "print token here ${ TOKEN }"
+          github_token: ${ TOKEN }
         uses: e-conomic/mergebot@v1
         with:
-          github_token: ${ TOKEN }
+        
           reviewers: ${{ secrets.PLATFORM_REVIEWERS }}
           semver_match: minor
