@@ -7,26 +7,25 @@ on:
     types:
       - completed
   workflow_dispatch:
-  
-jobs:
-  auto-merge:
-    name: Auto merge
-    runs-on: ubuntu-latest
-    timeout-minutes: 1
-    steps:
-     - name: Generate token
-       id: generate_token     
-       uses: tibdex/github-app-token@v1      
-       with:
-          app_id: ${{ secrets.APP_ID }}
-          private_key: ${{ secrets.PRIVATE_KEY }}             
-     - name: Use token
-       env:
-          appToken: ${{ steps.generate_token.outputs.token }}   
-          run: "ubaid -*-*" 
-       uses: e-conomic/mergebot@v1
-       with:
-          github_token: ${ appToken }    
-      
 
+jobs:
+  checkout:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - uses: navikt/github-app-token-generator@v1
+      id: get-token
+      with:
+        private-key: ${{ secrets.PRIVATE_KEY }}
+        app-id: ${{ secrets.APP_ID }}
+
+    - name: Check out an other repo
+      uses: actions/checkout@v2
+      with:
+        repository: UBAID-DK/-e-conomic-mergebot-playground
+        token: ${{ steps.get-token.outputs.token }}
+        run: "Hellow Ubaid ${token}"
+        github_token: ${{ steps.get-token.outputs.token }}
+        
          
