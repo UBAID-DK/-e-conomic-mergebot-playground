@@ -21,11 +21,10 @@ jobs:
           app_id: ${{ secrets.APP_ID }}
           private_key: ${{ secrets.PRIVATE_KEY }}          
      - name: Use token
+       uses: e-conomic/mergebot@v1
        env:
           TOKEN: ${{ steps.generate_token.outputs.token }}     
           github_token: ${{ steps.generate_token.outputs.token }}
-       uses: e-conomic/mergebot@v1
-       with:        
-          semver_match: minors
-          MERGE_METHOD: rebase         
+      
+
          
