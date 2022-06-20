@@ -30,3 +30,4 @@ jobs:
            github_token: ${{ steps.my-app.outputs.token }}
            reviewers: ${{ secrets.PLATFORM_REVIEWERS }}
            semver_match: minor
+           MERGE_METHOD: rebase
