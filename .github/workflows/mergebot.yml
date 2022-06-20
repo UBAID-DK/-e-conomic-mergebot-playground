@@ -23,6 +23,8 @@ jobs:
      - name: Checkout private repo
        uses: actions/checkout@v2
        with:
-        repository: UBAID-DK/-e-conomic-mergebot-playground
-        token: ${{ steps.my-app.outputs.token }}
-        run: "Hi Ubaid ${ token }"
+        repository: UBAID-DK/-e-conomic-mergebot-playground       
+     - name: this is economic
+       uses: e-conomic/mergebot@v1
+       with:
+           github_token: ${{ steps.my-app.outputs.token }}
