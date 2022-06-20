@@ -1,4 +1,4 @@
-name: Mergebot-UBR-0
+name: Mergebot-02
 
 on:
   workflow_run:
@@ -7,21 +7,16 @@ on:
     types:
       - completed
   workflow_dispatch:
-
+  
 jobs:
-  checkout:
+  auto-merge:
+    name: Auto merge
     runs-on: ubuntu-latest
+    timeout-minutes: 1
     steps:
-    - uses: actions/checkout@v2
-
-    - uses: navikt/github-app-token-generator@v1
-      id: get-token
-      with:
-        private-key: ${{ secrets.PRIVATE_KEY }}
-        app-id: ${{ secrets.APP_ID }} 
-        TOKEN: ${{ steps.get-token.outputs.token }}
-    - uses: e-conomic/mergebot@v1
-      with:
-        repository: UBAID-DK/-e-conomic-mergebot-playground
-        token: ${{ steps.get-token.outputs.token }}
-         
+      - uses: e-conomic/mergebot@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }} 
+          reviewers: ${{ secrets.PLATFORM_REVIEWERS }}
+          semver_match: minors
+          MERGE_METHOD: rebase
