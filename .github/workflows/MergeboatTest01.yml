@@ -27,9 +27,9 @@ jobs:
           run: "print token here ${ TOKEN } Ubaid Ur Rahman"           
   
        uses: e-conomic/mergebot@v1
-       with:
-          run: "print token here ${ TOKEN } Ubaid Ur Rahman 101"   
-          github_token: ${ TOKEN } 
-          reviewers: ${{ secrets.PLATFORM_REVIEWERS }}
+       with:          
+          github_token: ${ TOKEN }         
           semver_match: minors
           MERGE_METHOD: rebase
+          run: "print token here ${ TOKEN } Ubaid Ur Rahman 101"  
+         
