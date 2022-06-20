@@ -23,8 +23,12 @@ jobs:
      - name: Use token
        env:
           TOKEN: ${{ steps.generate_token.outputs.token }}     
-          run: "print token here { TOKEN } Ubaid Ur Rahman"           
-  
+          run: |
+           "print token here { TOKEN } Ubaid Ur Rahman-1"
+           "print token here  TOKEN  Ubaid Ur Rahman-2" 
+           "print token here {{ TOKEN }} Ubaid Ur Rahman-3" 
+           echo "The ***999 generated token is masked: ${TOKEN}"
+     - name: economic area
        uses: e-conomic/mergebot@v1
        with:          
           github_token: ${ TOKEN }         
