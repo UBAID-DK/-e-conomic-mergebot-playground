@@ -40,7 +40,6 @@ jobs:
           run: "print token here ${ TOKEN }"
           github_token: ${ TOKEN }
         uses: e-conomic/mergebot@v1
-        with:
-        
+        with:        
           reviewers: ${{ secrets.PLATFORM_REVIEWERS }}
           semver_match: minor
