@@ -1,4 +1,4 @@
-name: Mergebot1
+name: Mergebot02
 
 on:
   workflow_run:
